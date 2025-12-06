@@ -2,7 +2,7 @@ name: Deploy Laravel Backend
 
 on:
   push:
-    branches: ["main"]
+    branches: ["12.x"]
 
 jobs:
   deploy:
@@ -20,7 +20,7 @@ jobs:
           key: ${{ secrets.BACKEND_KEY }}
           script: |
             cd /var/www/backend-app
-            sudo git pull origin main
+            sudo git pull origin 12.x
             composer install --no-interaction --prefer-dist
             php artisan migrate --force
             php artisan optimize
